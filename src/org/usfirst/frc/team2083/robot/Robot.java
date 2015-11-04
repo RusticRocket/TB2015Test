@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
+
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the IterativeRobot
@@ -40,19 +41,22 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
 
-    	if(autoLoopCounter < 1000) //Check if we've completed 1000 loops (approximately 2 seconds)
+    	if(autoLoopCounter < 275) //Check if we've completed 1000 loops (approximately 2 seconds)
 		{
 			autoLoopCounter++;
  
-			if(autoLoopCounter > 1 && autoLoopCounter < 100){myRobot.drive(-0.1,0);}
-			if(autoLoopCounter > 100 && autoLoopCounter < 200){myRobot.drive(-0.2,0);}
-			if(autoLoopCounter > 200 && autoLoopCounter < 300){myRobot.drive(-0.3,0);}
-			if(autoLoopCounter > 300 && autoLoopCounter < 400){myRobot.drive(-0.4,0);}
-			if(autoLoopCounter > 400 && autoLoopCounter < 500){myRobot.drive(-0.5,0);}
-			if(autoLoopCounter > 500 && autoLoopCounter < 600){myRobot.drive(-0.6,0);}
-			if(autoLoopCounter > 600 && autoLoopCounter < 800){myRobot.drive(-0.7,0);}
-			if(autoLoopCounter > 700 && autoLoopCounter < 1000){myRobot.drive(0,0);}
-
+			if(autoLoopCounter > 1 && autoLoopCounter < 25){myRobot.drive(-0.1,0);}
+			if(autoLoopCounter > 25 && autoLoopCounter < 50){myRobot.drive(-0.2,0);}
+			if(autoLoopCounter > 50 && autoLoopCounter < 75){myRobot.drive(-0.3,0);}
+			if(autoLoopCounter > 75 && autoLoopCounter < 100){myRobot.drive(-0.4,0);}
+			if(autoLoopCounter > 100 && autoLoopCounter < 125){myRobot.drive(-0.5,0);}
+			if(autoLoopCounter > 125 && autoLoopCounter < 150){myRobot.drive(-0.6,0);}
+			if(autoLoopCounter > 150 && autoLoopCounter < 175){myRobot.drive(-0.5,0);
+			if(autoLoopCounter > 175 && autoLoopCounter < 200){myRobot.drive(-0.4,0);}
+			if(autoLoopCounter > 200 && autoLoopCounter < 225){myRobot.drive(-0.3,0);}
+			if(autoLoopCounter > 225 && autoLoopCounter < 250){myRobot.drive(-0.2,0);}
+			if(autoLoopCounter > 250 && autoLoopCounter < 275){myRobot.drive(-0.1,0);}
+			}
 
 		}
     }
@@ -67,16 +71,11 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
-    	if(autoLoopCounter < 500) {
-    	
-    	autoLoopCounter++;
-    
-    	
-   //     myRobot.arcadeDrive(stick);
-    	if(autoLoopCounter >1 && autoLoopCounter <500){myRobot.arcadeDrive(0.1, 1);}
-
-       
-    	}
+        myRobot.arcadeDrive(0,0);
+        if(stick.getRawButton(1)){myRobot.drive(0.2, 0);}
+        if(stick.getRawButton(2)){myRobot.drive(0.5, 0);
+        
+        }
     }
     
     /**
@@ -87,3 +86,4 @@ public class Robot extends IterativeRobot {
     }
     
 }
+//
